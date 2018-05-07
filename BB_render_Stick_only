@@ -1,0 +1,11 @@
+@echo off
+
+pushd %1
+for %%f in (*.BFL) do (
+for /l %%x in (1,1,15) do (
+echo Rendering %%f Log %%x
+
+"g:\Drone_configuration\BB_Overlay_Batch\blackbox_tool\blackbox_render.exe" --index %%x --fps 48 --no-draw-pid-table --no-draw-craft --no-draw-time --no-plot-motor --no-plot-pid --no-plot-gyro %%f
+)
+)
+popd
